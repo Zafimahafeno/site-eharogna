@@ -1,0 +1,52 @@
+<div class="steptwo">
+    <form method="post" action="/api/register" class="steptwo-form">
+        <div class="steptwo-form__head">
+           <label for="" class="head--label">Expérience professionnelle</label>
+          
+           <div class="head--ligne"></div>
+           
+        </div>
+        <div class="steptwo-form__all">
+            <div class="steptow-job">
+                <p class="steptow-job__name">Job 1</p>
+                <div class="steptow-job__input">
+                    <input type="text"  class="form-control" name="titre-post1" placeholder="Titre du poste occupé">
+                    <input type="text"  class="form-small" name="debut-post1" placeholder="Debut">
+                    <input type="text"  class="form-small" name="fin-post1" placeholder="fin">
+                    <div class="form-check">
+                        <input type="checkbox" id="status-post1" name="en-cours-post1" />
+                        <label for="status-post1">En cours</label>
+                    </div>
+                </div>
+                <div class="steptow-job__text">
+                    <textarea placeholder="Description du poste" name="description-post1"></textarea>
+                </div>
+            </div>
+            <div class="steptow-job">
+                <p class="steptow-job__name">Job 2</p>
+                <div class="steptow-job__input">
+
+                    <input type="text"  class="form-control" name="titre-post2" placeholder="Titre du poste occupé">
+                    <input type="text"  class="form-small" name="debut-post2" placeholder="Debut">
+                    <input type="text"  class="form-small" name="fin-post2" placeholder="fin">
+
+                    <div class="form-check">
+                        <input type="checkbox" id="status-post2" name="en-cours-post2" />
+                        <label for="status-post2">En cours</label>
+                    </div>
+                </div>
+                <div class="steptow-job__text">
+                    <textarea placeholder="Description du poste" name="description-post2"></textarea>
+                </div>
+            </div>   
+
+			<h2 class="title">Competences</h2>
+			<%- include('../tags.ejs'); %>
+        </div>    
+    </form>
+</div>
+<script>
+    const steptwo = document.querySelector('.steptwo');
+    setTimeout(() => steptwo.classList.add('show'), 50);
+
+</script>

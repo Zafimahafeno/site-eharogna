@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head.ejs'); %>
+
+	<body>
+        <main class="inscription">
+            <div class="inscription__left">
+                <div class="inscription__left--icon">
+                    <a href="/"> <img  class="icon-img" src="images/icons/home.png" alt="home.png"></a>
+                    <a href="/"> <img class="icon-img" src="images/icons/back.png" alt="back.png""></a>
+                </div>
+                <div class="inscription__left--body">
+                    <span class="body-intro">Votre nouvelle</span>
+                    <h1 class="body-title">Aventure Professionnelle</h1>
+                    <p class="body-subtitle">commence ici</p>
+                    <p class="body-text">Bravo ! Votre compte a été crée ! Suivez des cours, préparer vos questions pour les présentiels, 
+                        trouver un emploi sur Fianarantsoa ou un job en freelance...explorer vite votre compte</p>
+                </div>
+            </div>
+            <div class="inscription__right">
+                <h1 class="inscription__right--title">CREEZ-VOTRE PROFIL</h1>
+                <p class="inscription__right--subtitle">(facultatif)</p>
+                <p class="inscription__right--text">Soucieux de vous trouver un emploi, nous vous invitons à remplir ce formulaire pour vous créer un CV. 
+                    Ainsi, à chaque offre d’emploi qui corresponde à votre profil , on vous enverra une notification.</p>
+                <div class="inscription__body">
+                    <div class="step">
+                        <div class="step-content">
+                            <div class="steptwo">
+                                <form method="post" action="/api/saveProfessionalExperience" class="steptwo-form">
+                                    <div class="steptwo-form__head">
+                                       <label for="" class="head--label">Expérience professionnelle</label>
+                                      
+                                       <div class="head--ligne"></div>
+                                       
+                                    </div>
+                                    <div class="steptwo-form__all">
+                                        <div class="steptow-job">
+                                            <p class="steptow-job__name">Job 1</p>
+                                            <div class="steptow-job__input">
+                                                <input type="text"  class="form-control" name="titrepost1" placeholder="Titre du poste occupé">
+                                                <input type="text"  class="form-small" name="debutpost1" placeholder="Debut">
+                                                <input type="text"  class="form-small" name="finpost1" placeholder="fin">
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="status-post1" name="en-cours-post1" />
+                                                    <label for="status-post1">En cours</label>
+                                                </div>
+                                            </div>
+                                            <div class="steptow-job__text">
+                                                <textarea placeholder="Description du poste" name="descriptionpost1"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="steptow-job">
+                                            <p class="steptow-job__name">Job 2</p>
+                                            <div class="steptow-job__input">
+                            
+                                                <input type="text"  class="form-control" name="titrepost2" placeholder="Titre du poste occupé">
+                                                <input type="text"  class="form-small" name="debutpost2" placeholder="Debut">
+                                                <input type="text"  class="form-small" name="finpost2" placeholder="fin">
+                            
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="status-post2" name="en-cours-post2" />
+                                                    <label for="en-cours-post2">En cours</label>
+                                                </div>
+                                            </div>
+                                            <div class="steptow-job__text">
+                                                <textarea placeholder="Description du poste" name="descriptionpost2"></textarea>
+                                            </div>
+                                        </div>   
+                                      
+                                        <div class="buttons">
+                                            <input type="submit" value="Suivant" class="suivant-button">
+                                            <a href="./inscriptionstep3" class="ignorer-button">Ignorer</a>
+                                        </div>
+                                    </div>    
+                                </form>
+                            </div>
+                            <script>
+                                const steptwo = document.querySelector('.steptwo');
+                                setTimeout(() => steptwo.classList.add('show'), 50);
+                            
+                            </script>
+                            <style>
+                                /* Ajout du style pour le bouton "Suivant" */
+                                .buttons {
+                                    text-align: center; /* Centrer le contenu horizontalement */
+                                    margin-top: 20px; /* Ajouter une marge en haut pour l'espacement */
+                                }
+                            
+                                .suivant-button {
+                                    background-color: #4CAF50; /* Couleur de fond */
+                                    color: white; /* Couleur du texte */
+                                    padding: 10px 20px; /* Marge intérieure */
+                                    border: none; /* Pas de bordure */
+                                    border-radius: 5px; /* Coins arrondis */
+                                    cursor: pointer; /* Curseur pointeur au survol */
+                                }
+                            
+                                .suivant-button:hover {
+                                    background-color: #45a049; /* Couleur de fond au survol */
+                                }
+                            
+                                /* Ajout du style pour le bouton "Ignorer" */
+                                .ignorer-button {
+                                    background-color: #ccc; /* Couleur de fond */
+                                    color: black; /* Couleur du texte */
+                                    padding: 10px 20px; /* Marge intérieure */
+                                    border: none; /* Pas de bordure */
+                                    border-radius: 5px; /* Coins arrondis */
+                                    text-decoration: none; /* Pas de soulignement du lien */
+                                    cursor: pointer; /* Curseur pointeur au survol */
+                                    margin-left: 10px; /* Marge à gauche pour l'espacement */
+                                }
+                            
+                                .ignorer-button:hover {
+                                    background-color: #ddd; /* Couleur de fond au survol */
+                                }
+                            
+                                /* Style pour les champs du formulaire */
+                                .stepone-form__input {
+                                    margin-bottom: 15px;
+                                    position: relative;
+                                }
+                            
+                                .stepone-form__input input {
+                                    width: 100%;
+                                    padding: 10px;
+                                    box-sizing: border-box;
+                                    border: 1px solid #ccc;
+                                    border-radius: 5px;
+                                    font-size: 16px;
+                                }
+                            
+                                .stepone-form__input i {
+                                    position: absolute;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    left: 10px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                
+                    
+                </div>
+            </div>
+        </main>
+    <script>
+            const steps = document.querySelectorAll('.step');
+            const prevBtns = document.querySelectorAll('.prev-btn');
+            const nextBtns = document.querySelectorAll('.next-btn');
+            const finishBtn = document.querySelector('.finish-btn');
+            
+
+            let currentStep = 0;
+
+            const updateStep = () => {
+            steps.forEach((step, index) => {
+                if (index === currentStep) {
+                step.classList.add('active');
+                } else {
+                step.classList.remove('active');
+                }
+            });
+            
+            prevBtns.forEach(btn => btn.disabled = currentStep === 0);
+            
+            if (currentStep === steps.length - 1) {
+                nextBtns.forEach(btn => btn.style.display = 'none');
+                finishBtn.style.display = 'inline-block';
+            } else {
+                nextBtns.forEach(btn => btn.style.display = 'inline-block');
+                finishBtn.style.display = 'none';
+            }
+            };
+
+            prevBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentStep--;
+                updateStep();
+            });
+            });
+
+            nextBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentStep++;
+                updateStep();
+            });
+            });
+
+            updateStep();  
+
+    </script>
+	</body>
+
+</html>
+<style>
+.suivant-button {
+background-color: #4CAF50; /* Couleur de fond */
+color: white; /* Couleur du texte */
+padding: 10px 20px; /* Marge intérieure */
+border: none; /* Pas de bordure */
+border-radius: 5px; /* Coins arrondis */
+cursor: pointer; /* Curseur pointeur au survol */
+}
+
+.suivant-button:hover {
+background-color: #45a049; /* Couleur de fond au survol */
+}
+</style>
+
+

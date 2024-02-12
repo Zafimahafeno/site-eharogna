@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head.ejs'); %>
+
+	<body>
+        <main class="inscription">
+            <div class="inscription__left">
+                <div class="inscription__left--icon">
+                    <a href="/"> <img  class="icon-img" src="images/icons/home.png" alt="home.png"></a>
+                    <a href="/"> <img class="icon-img" src="images/icons/back.png" alt="back.png""></a>
+                </div>
+                <div class="inscription__left--body">
+                    <span class="body-intro">Votre nouvelle</span>
+                    <h1 class="body-title">Aventure Professionnelle</h1>
+                    <p class="body-subtitle">commence ici</p>
+                    <p class="body-text">Bravo ! Votre compte a été crée ! Suivez des cours, préparer vos questions pour les présentiels, 
+                        trouver un emploi sur Fianarantsoa ou un job en freelance...explorer vite votre compte</p>
+                </div>
+            </div>
+            <div class="inscription__right">
+                <h1 class="inscription__right--title">CREEZ-VOTRE PROFIL</h1>
+                <p class="inscription__right--subtitle">(facultatif)</p>
+                <p class="inscription__right--text">Soucieux de vous trouver un emploi, nous vous invitons à remplir ce formulaire pour vous créer un CV. 
+                    Ainsi, à chaque offre d’emploi qui corresponde à votre profil , on vous enverra une notification.</p>
+                <div class="inscription__body">
+                    <div class="step">
+                        <div class="step-content">
+                            <div class="setpthree">
+                                <form method="post" action="/api/saveFormation" class="setpthree-form">
+                                    <div class="setpthree-form__head">
+                                       <label for="" class="head--label">Formation , Diplôme</label>
+                                      
+                                       <div class="head--ligne"></div>
+                                       
+                                    </div>
+                                    <div class="inputs">
+                                        <div class="inputs-1">
+                                            <div class="inputs-1__input">
+                                                <i class="inputs-1__input--icon">
+                                                    <img src="images/icons/i-diplome.png"   alt="i-diplome.png">
+                                                </i>
+                                                <input type="text" id="diplome" name="diplome" class="form-samll" placeholder="Diplôme / Niveau d’Etude">
+                                            </div>
+                            
+                                            <div class="inputs-1__input">
+                                                <i class="inputs-1__input--icon">
+                                                    <img src="images/icons/i-school.png" alt="i-school.png">
+                                                </i>
+                                                <input type="text" id="etablissement" name="etablissement" class="form-samll" placeholder="Etablissement">
+                                            </div>
+                                        </div>
+                                        <div class="inputs-2">
+                                            <div class="inputs-2__input">  
+                                                <input type="text" id="filiere" class="form-control" name="filiere" placeholder="Filière">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="inputs-1">
+                                            <div class="inputs-1__input">
+                                                <i class="inputs-1__input--icon">
+                                                    <img src="images/icons/i-book.png"   alt="i-book.png">
+                                                </i>
+                                                <input type="text" id="formation1" name="formation1" class="form-samll" placeholder="Formation 1">
+                                            </div>
+                                            <div class="inputs-1__input">
+                                                <i class="inputs-1__input--icon">
+                                                    <img src="images/icons/i-school.png" alt="i-school.png">
+                                                </i>
+                                                <input type="text" id="etablissement1" name="etablissement1" class="form-samll" placeholder="Etablissement 1">
+                                            </div>   
+                                            <div class="inputs-1__input">
+                                                <i class="inputs-1__input--icon">
+                                                    <img src="images/icons/i-date.png" alt="i-date.png">
+                                                </i>
+                                                <input type="date" id="date1" name="date1"  class="form-samll" placeholder="Date">
+                                            </div>
+                                        </div>
+                                        <div class="inputs-1">
+                                            <div class="inputs-1__input">
+                                                <i class="inputs-1__input--icon">
+                                                    <img src="images/icons/i-book.png"   alt="i-book.png">
+                                                </i>
+                                                <input type="text" id="formation2" name="formation2" class="form-samll" placeholder="Formation 2">
+                                            </div>
+                                            <div class="inputs-1__input">
+                                                <i class="inputs-1__input--icon">
+                                                    <img src="images/icons/i-school.png" alt="i-school.png">
+                                                </i>
+                                                <input type="text" id="etablissement2" name="etablissement2" class="form-samll" placeholder="Etablissement 2">
+                                            </div> 
+                                            <div class="inputs-1__input">
+                                                <i class="inputs-1__input--icon">
+                                                    <img src="images/icons/i-date.png" alt="i-date.png">
+                                                </i>
+                                                <input type="date" id="date2" name="date2"  class="form-samll" placeholder="Date">
+                                            </div>  
+                                        </div>
+                                        <div class="inputs-3">
+                                        </div>
+                                       
+                                                 
+                                    </div>
+                                      
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <input type="submit" value="Suivant" class="suivant-button">
+                        <a href="javascript:void(0);" class="ignorer-button" onclick="showModal()">Ignorer</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    <script>
+
+
+
+            const steps = document.querySelectorAll('.step');
+            const prevBtns = document.querySelectorAll('.prev-btn');
+            const nextBtns = document.querySelectorAll('.next-btn');
+            
+            
+
+            let currentStep = 0;
+
+            const updateStep = () => {
+            steps.forEach((step, index) => {
+                if (index === currentStep) {
+                step.classList.add('active');
+                } else {
+                step.classList.remove('active');
+                }
+            });
+            
+            prevBtns.forEach(btn => btn.disabled = currentStep === 0);
+            
+            if (currentStep === steps.length - 1) {
+                nextBtns.forEach(btn => btn.style.display = 'none');
+                finishBtn.style.display = 'inline-block';
+            } else {
+                nextBtns.forEach(btn => btn.style.display = 'inline-block');
+                finishBtn.style.display = 'none';
+            }
+            };
+
+            prevBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentStep--;
+                updateStep();
+            });
+            });
+
+            nextBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentStep++;
+                updateStep();
+            });
+            });
+
+            updateStep();  
+
+
+            // Ajouter le script pour la boîte de dialogue modale
+    const modal = document.getElementById('myModal');
+    const finishBtn = document.querySelector('.suivant-button'); // Utilisation du bouton "Suivant"
+    const ignorerBtn = document.querySelector('.ignorer-button'); // Utilisation du bouton "Ignorer"
+    const closeButton = document.querySelector('.close');
+    const okButton = document.querySelector('.ok-button'); // Ajout du bouton "OK"
+
+
+    function showModal() {
+        // Utiliser SweetAlert2 pour une boîte de dialogue modale plus conviviale
+        Swal.fire({
+            title: "Succès!",
+            text: "Votre compte a été créé avec succès. L'administration va approuver votre inscription!",
+            icon: "success",
+            confirmButtonText: "OK",
+        }).then((result) => {
+            // Rediriger vers la page login-register si l'utilisateur clique sur "OK"
+            if (result.isConfirmed) {
+                window.location.href = "./login-register";
+            }
+        });
+    }
+    </script>
+	</body>
+
+</html>
+<style>
+    /* Ajout du style pour le bouton "Suivant" */
+    .buttons {
+        text-align: center; /* Centrer le contenu horizontalement */
+        margin-top: 20px; /* Ajouter une marge en haut pour l'espacement */
+    }
+
+    .suivant-button {
+        background-color: #4CAF50; /* Couleur de fond */
+        color: white; /* Couleur du texte */
+        padding: 10px 20px; /* Marge intérieure */
+        border: none; /* Pas de bordure */
+        border-radius: 5px; /* Coins arrondis */
+        cursor: pointer; /* Curseur pointeur au survol */
+    }
+
+    .suivant-button:hover {
+        background-color: #45a049; /* Couleur de fond au survol */
+    }
+
+    /* Ajout du style pour le bouton "Ignorer" */
+    .ignorer-button {
+        background-color: #ccc; /* Couleur de fond */
+        color: black; /* Couleur du texte */
+        padding: 10px 20px; /* Marge intérieure */
+        border: none; /* Pas de bordure */
+        border-radius: 5px; /* Coins arrondis */
+        text-decoration: none; /* Pas de soulignement du lien */
+        cursor: pointer; /* Curseur pointeur au survol */
+        margin-left: 10px; /* Marge à gauche pour l'espacement */
+    }
+
+    .ignorer-button:hover {
+        background-color: #ddd; /* Couleur de fond au survol */
+    }
+
+    /* Style pour les champs du formulaire */
+    .stepone-form__input {
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .stepone-form__input input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .stepone-form__input i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+    }
+</style>
+
+

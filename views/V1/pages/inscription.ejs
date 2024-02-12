@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head.ejs'); %>
+	<body>
+        <main class="inscription">
+            <div class="inscription__left">
+                <div class="inscription__left--icon">
+                    <a href="/"> <img  class="icon-img" src="images/icons/home.png" alt="home.png"></a>
+                    <a href="/"> <img class="icon-img" src="images/icons/back.png" alt="back.png"></a>
+                </div>
+                <div class="inscription__left--body">
+                    <span class="body-intro">Votre nouvelle</span>
+                    <h1 class="body-title">Aventure Professionnelle</h1>
+                    <p class="body-subtitle">commence ici</p>
+                    <p class="body-text">Bravo ! Votre compte a été crée ! Suivez des cours, préparer vos questions pour les présentiels, 
+                        trouver un emploi sur Fianarantsoa ou un job en freelance...explorer vite votre compte</p>
+                </div>
+            </div>
+            <div class="inscription__right">
+                <h1 class="inscription__right--title">CREEZ-VOTRE PROFIL</h1>
+                <p class="inscription__right--subtitle">(facultatif)</p>
+                <p class="inscription__right--text">Soucieux de vous trouver un emploi, nous vous invitons à remplir ce formulaire pour vous créer un CV. 
+                    Ainsi, à chaque offre d’emploi qui corresponde à votre profil , on vous enverra une notification.</p>
+                <div class="inscription__body">
+                    <div class="step active">
+                        <div class="step-content">
+                            <div class="stepone">
+                                <form method="post" action="/api/register" class="stepone-form">
+                                    <div class="stepone-form__head">
+                                       <label for="" class="head--label">Etat Civil</label>
+                                      
+                                       <div class="head--ligne"></div>
+                                       
+                                    </div>
+                                    <div class="stepone-form__all">
+                                        <div class="stepone-form__input">
+                                            <i class="stepone-form__input--icon">
+                                                <img src="images/icons/i-name.png" alt="login-1.png">
+                                            </i>
+                                            <input type="text" id="firstName" name="firstName" placeholder="Nom">
+                                        </div>
+                                        <div class="stepone-form__input">
+                                            <i class="stepone-form__input--icon">
+                                                <img src="images/icons/i-user.png" alt="i-user.png">
+                                            </i>
+                                            <input type="text" id="lastName" name="lastName" placeholder="Prenom">
+                                        </div>
+                                        <div class="stepone-form__input">
+                                            <i class="stepone-form__input--icon">
+                                                <img src="images/icons/i-date.png" alt="i-date.png">
+                                            </i>
+                                            <input type="date" id="birthDate" name="birthDate" placeholder="Date">
+                                        </div>
+                                        <div class="stepone-form__input">
+                                            <i class="stepone-form__input--icon">
+                                                <img src="images/icons/i-mail.png" alt="i-mail.png">
+                                            </i>
+                                            <input type="text" id="email" name="email" placeholder="E-mail">
+                                        </div>
+                                        <div class="stepone-form__input">
+                                            <i class="stepone-form__input--icon">
+                                                <img src="images/icons/i-tel.png" alt="i-tel.png">
+                                            </i>
+                                            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Tel">
+                                        </div>
+                                        <div class="stepone-form__input">
+                                            <i class="stepone-form__input--icon">
+                                                <img src="images/icons/i-home.png" alt="i-home.png">
+                                            </i>
+                                            <input type="text" id="adress" name="adress" placeholder="Adresse">
+                                        </div>
+                                        <div class="stepone-form__input">
+                                            <i class="stepone-form__input--icon">
+                                                <img src="images/icons/i-password.png" alt="i-password.png">
+                                            </i>
+                                            <input type="password" id="password" name="password" placeholder="Mot de passe">
+                                        </div>
+                                        <div class="stepone-form__input">
+                                            <i class="stepone-form__input--icon">
+                                                <img src="images/icons/i-password.png" alt="i-password.png">
+                                            </i>
+                                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmer le mot de passe">
+                                        </div>
+                                                 
+                                    </div>
+                                    <div class="buttons">
+                                        <input type="submit" value="Suivant" class="suivant-button">
+                                        <a href="./inscriptionstep2" class="ignorer-button">Ignorer</a>
+                                    </div>
+                                </form>
+                            </div>
+                            <style>
+                                /* Ajout du style pour le bouton "Suivant" */
+                                .buttons {
+                                    text-align: center; /* Centrer le contenu horizontalement */
+                                    margin-top: 20px; /* Ajouter une marge en haut pour l'espacement */
+                                }
+                            
+                                .suivant-button {
+                                    background-color: #4CAF50; /* Couleur de fond */
+                                    color: white; /* Couleur du texte */
+                                    padding: 10px 20px; /* Marge intérieure */
+                                    border: none; /* Pas de bordure */
+                                    border-radius: 5px; /* Coins arrondis */
+                                    cursor: pointer; /* Curseur pointeur au survol */
+                                }
+                            
+                                .suivant-button:hover {
+                                    background-color: #45a049; /* Couleur de fond au survol */
+                                }
+                            
+                                /* Ajout du style pour le bouton "Ignorer" */
+                                .ignorer-button {
+                                    background-color: #ccc; /* Couleur de fond */
+                                    color: black; /* Couleur du texte */
+                                    padding: 10px 20px; /* Marge intérieure */
+                                    border: none; /* Pas de bordure */
+                                    border-radius: 5px; /* Coins arrondis */
+                                    text-decoration: none; /* Pas de soulignement du lien */
+                                    cursor: pointer; /* Curseur pointeur au survol */
+                                    margin-left: 10px; /* Marge à gauche pour l'espacement */
+                                }
+                            
+                                .ignorer-button:hover {
+                                    background-color: #ddd; /* Couleur de fond au survol */
+                                }
+                            
+                                /* Style pour les champs du formulaire */
+                                .stepone-form__input {
+                                    margin-bottom: 15px;
+                                    position: relative;
+                                }
+                            
+                                .stepone-form__input input {
+                                    width: 100%;
+                                    padding: 10px;
+                                    box-sizing: border-box;
+                                    border: 1px solid #ccc;
+                                    border-radius: 5px;
+                                    font-size: 16px;
+                                }
+                            
+                                .stepone-form__input i {
+                                    position: absolute;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    left: 10px;
+                                }
+                            </style>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+	</body>
+</html>
